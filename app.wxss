@@ -1,0 +1,100 @@
+/**app.wxss 全局样式**/
+@import '/wux-weapp/assets/styles/weui.wxss';
+@import '/wux-weapp/assets/styles/skyvow.wxss';
+
+
+
+.container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.bg-gray{
+  background-color: #FAFAFA;
+}
+.bg-red{
+  background: -webkit-linear-gradient(270deg,#ff4b2c, #ff416c 91%);
+
+}
+.c-red{
+  color: #FF494B!important;
+}
+.c-green{
+  color: #07c160!important;
+}
+
+
+/* 自定义弹框 */
+.zan-dialog__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  opacity: 0.65;
+  background: #000;
+  display: none;
+}
+
+.zan-dialog__container {
+  position: fixed;
+  bottom: 400rpx;
+  width: 500rpx;
+  color: #333;
+  background: #fff;
+  margin-left: 125rpx;
+  transform: translateY(300%);
+  transition: all 0.4s ease;
+  border-radius: 24rpx;
+  z-index: 11;
+}
+
+.zan-dialog--show .zan-dialog__mask {
+  display: block;
+}
+
+.zan-dialog--show .zan-dialog__container {
+  transform: translateY(0);
+}
+
+.zan-dialog__container .title {
+  font-size: 32rpx;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 30rpx;
+}
+
+.zan-dialog__container .content {
+  font-size: 32rpx;
+  padding: 30rpx 40rpx;
+}
+.zan-dialog__container .content .number{
+  display: flex;
+  flex-direction: column;
+  max-height: 400rpx;
+  overflow-y: auto;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.zan-dialog__container .content .number >text{
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+
+.zan-dialog__container .footer {
+  display: flex;
+  padding: 6rpx 0;
+  border-top: 1rpx solid rgba(0, 0, 0, .2);
+}
+
+.zan-dialog__container .footer .btn {
+  flex: 1;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  padding: 15rpx 0;
+  border-right: 1rpx solid rgba(0, 0, 0, .2);
+}

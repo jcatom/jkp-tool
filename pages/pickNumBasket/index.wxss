@@ -1,0 +1,144 @@
+/* pages/pickNumBasket/index.wxss */
+
+/* 顶部按钮 */
+.btn-wrap {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 32rpx;
+}
+
+.btn-wrap .btn {
+  width: 235rpx;
+  height: 86rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  border-radius: 45rpx;
+}
+
+.btn-wrap .add-btn {
+  width: 405rpx;
+  color: #ff494b;
+  border: 1px solid #ff494b;
+}
+
+.btn-wrap .clear-btn {
+  color: #999;
+  border: 1px solid #979797;
+}
+
+.btn-wrap .clear-btn>image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+
+/* 内容头部 */
+.top-icon {
+  margin: 0 32rpx;
+}
+
+.top-icon>image {
+  width: 100%;
+  height: 40rpx;
+}
+
+/* 内容主体 */
+.main {
+  flex: 1;
+  margin: 0 72rpx;
+  margin-top: -30rpx;
+}
+
+.main .content {
+  min-height: 100rpx;
+  max-height: 760rpx;
+  overflow-y: auto;
+  background: #fff;
+  padding: 30rpx 30rpx;
+  box-shadow: 0 3px 5px 0 #dedede; 
+}
+.no-data{
+  color: #999;
+  text-align: center;
+}
+/* 每一项 */
+.note-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1px dashed #cccccc;
+}
+
+.note-item .del-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.note-item .note {
+  flex: 1;
+  color: #333;
+}
+
+.note-item .right-icon {
+  width: 16rpx;
+  height: 25rpx;
+  margin-left: 10rpx;
+}
+
+/* 底部 提交 */
+.bottom-wrap {
+  background: #fff;
+}
+.submit-info {
+  display: flex;
+  justify-content: center;
+  padding: 10rpx 32rpx 0;
+}
+.number-picker-wrap {
+  display: flex;
+  align-items: center;
+  color: #999;
+}
+.number-picker{
+  display: flex;
+  align-items: center;
+  height: 74rpx;
+  background: #ededed;
+  border-radius: 25rpx;
+  border: 1px solid #ddd;
+  margin: 0 16rpx;
+}
+.number-picker .num-input{
+  width: 100rpx;
+  height: 100%;
+  background: #fff;
+  color: #333;
+  font-size: 32rpx;
+  text-align: center;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  margin: 0;
+}
+.number-picker .num-btn{
+  width: 70rpx;
+  height: 100%;
+  font-size: 38rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-wrap .create-code {
+  width: 300rpx;
+  height: 86rpx;
+  color: #fff;
+  font-size: 32rpx;
+  background: #ff494b;
+  border-radius: 45rpx;
+}
+
+
+

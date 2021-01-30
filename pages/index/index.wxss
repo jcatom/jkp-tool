@@ -1,0 +1,164 @@
+/* header */
+.header-wrap {
+  height: 76rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32rpx;
+  border-top: 1rpx solid #eee;
+  border-bottom: 1px solid #fcfcfc;
+}
+
+/* 用户信息 */
+.userinfo {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.userinfo .avatar {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+}
+
+.userinfo .nickname {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 28rpx;
+  font-weight: normal;
+  background: #fff;
+  /* background: pink; */
+  padding: 0;
+}
+
+/* 游戏记录 */
+.game-record {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #047dfc;
+}
+
+/*tab切换*/
+.swiper-tab {
+  display: flex;
+  background-color: #fff;
+  padding: 0 32rpx;
+  border-bottom: 1px solid #dedede;
+}
+
+.swiper-tab-list {
+  width: 25%;
+  font-size: 30rpx;
+}
+
+.swiper-tab-list>text {
+  display: inline-block;
+  color: #999;
+  padding: 20rpx 0;
+  z-index: 0;
+}
+
+.on>text {
+  color: #F73F3F;
+  border-bottom: 5rpx solid #F73F3F;
+}
+
+/* 输入框 */
+.input-box-wrap {
+  background-color: #fff;
+  padding: 20rpx 32rpx;
+  margin-top: 20rpx;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 280rpx;
+  font-size: 32rpx;
+}
+
+
+.msg-wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 32rpx 0;
+}
+
+.msg-wrap .error-msg {
+  flex: 1;
+  font-size: 30rpx;
+}
+
+/* 按钮 */
+.btn-wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 32rpx 10rpx;
+}
+.btn-wrap .btn {
+  width: 235rpx;
+  height: 86rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  border-radius: 45rpx;
+}
+.btn-wrap .add-btn {
+  width: 405rpx;
+  color: #fff;
+  background: #20be23;
+}
+.btn-wrap .my-btn {
+  height: 80rpx;
+  color: #999;
+  border: 1px solid #979797;
+}
+
+/* 描述文本 */
+.desc {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  color: #666;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  padding: 0rpx 32rpx;
+}
+
+.desc .title {
+  color: #333;
+}
+
+.desc .example {
+  display: flex;
+  justify-content: space-between;
+}
+
+.desc .example>text {
+  color: #047DFC;
+}
+
+.question-icon {
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  color: #999;
+  border: 1px solid #999;
+  border-radius: 50%;
+  margin-left: 12rpx;
+}
+

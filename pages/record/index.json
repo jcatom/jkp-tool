@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "游戏记录",
+  "usingComponents": {
+    "wux-refresher": "../../wux-weapp/dist/refresher/index"
+  }
+}

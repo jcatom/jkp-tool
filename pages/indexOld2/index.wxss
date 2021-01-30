@@ -1,0 +1,239 @@
+/* header */
+.header-wrap {
+  height: 76rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32rpx;
+  border-top: 1rpx solid #eee;
+  border-bottom: 1px solid #fcfcfc;
+}
+
+/* 用户信息 */
+.userinfo {
+  height: 100%;
+  flex:1;
+  display: flex;
+  align-items: center;
+}
+
+.userinfo .avatar {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+}
+
+.userinfo .nickname {
+  height:100%;
+  flex:1;
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 28rpx;
+  font-weight: normal;
+  background: #fff;
+  /* background: pink; */
+  padding: 0;
+}
+
+/* 游戏记录 */
+.game-record {
+  height:100%;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #047dfc;
+}
+
+/*tab切换*/
+.swiper-tab {
+  display: flex;
+  background-color: #fff;
+  padding: 0 32rpx;
+  border-bottom: 1px solid #dedede;
+}
+
+.swiper-tab-list {
+  width: 25%;
+  font-size: 30rpx;
+}
+
+.swiper-tab-list>text {
+  display: inline-block;
+  color: #999;
+  padding: 20rpx 0;
+  z-index: 0;
+}
+
+.on>text {
+  color: #F73F3F;
+  border-bottom: 5rpx solid #F73F3F;
+}
+
+/* 输入框 */
+.input-box-wrap{
+  background-color: #fff;
+  padding: 20rpx 32rpx;
+  margin-top: 20rpx;
+}
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 280rpx;
+  font-size: 32rpx;
+}
+
+
+.msg-wrap{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 32rpx 0;
+}
+.msg-wrap .error-msg {
+  flex: 1;
+  font-size: 30rpx;
+}
+.msg-wrap .format{
+  font-size: 30rpx;
+  margin-left: 20rpx;
+  display: flex;
+  align-items: center;
+}
+/*checkbox 选项框大小  */
+checkbox .wx-checkbox-input {
+  width: 30rpx;
+  height: 30rpx;
+  font-size: 24rpx;
+  margin-right: 10rpx;
+}
+/*checkbox选中后样式  */
+/* checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #FF525C;
+} */
+
+/* 描述文本 */
+.desc {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  color: #666;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  padding: 0rpx 32rpx;
+}
+
+.desc .title {
+  color: #333;
+}
+
+.desc .example {
+  display: flex;
+  justify-content: space-between;
+}
+
+.desc .example>text {
+  color: #047DFC;
+}
+.question-icon{
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  color: #999;
+  border: 1px solid #999;
+  border-radius: 50%;
+  margin-left: 12rpx;
+}
+
+/* 生成二维码 */
+.createQRbtn {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-size: 30rpx;
+  background: #fca1a2;
+  border-radius: 45px;
+  padding: 20rpx 0;
+  margin: 30rpx 32rpx;
+}
+
+
+/* 弹框 */
+.zan-dialog__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  opacity: 0.65;
+  background: #000;
+  display: none;
+}
+
+.zan-dialog__container {
+  position: fixed;
+  bottom: 400rpx;
+  width: 500rpx;
+  color: #333;
+  background: #fff;
+  margin-left: 125rpx;
+  transform: translateY(300%);
+  transition: all 0.4s ease;
+  border-radius: 24rpx;
+  z-index: 11;
+}
+
+.zan-dialog--show .zan-dialog__mask {
+  display: block;
+}
+
+.zan-dialog--show .zan-dialog__container {
+  transform: translateY(0);
+}
+
+.zan-dialog__container .title {
+  font-size: 32rpx;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 30rpx;
+}
+
+.zan-dialog__container .content {
+  font-size: 32rpx;
+  padding: 30rpx 40rpx;
+}
+.zan-dialog__container .content .number{
+  display: flex;
+  flex-direction: column;
+  max-height: 400rpx;
+  overflow-y: auto;
+  margin-bottom: 20rpx;
+}
+.zan-dialog__container .content .number >text{
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+
+.zan-dialog__container .footer {
+  display: flex;
+  padding: 6rpx 0;
+  border-top: 1rpx solid rgba(0, 0, 0, .2);
+}
+
+.zan-dialog__container .footer .btn {
+  flex: 1;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  padding: 15rpx 0;
+  border-right: 1rpx solid rgba(0, 0, 0, .2);
+}
+

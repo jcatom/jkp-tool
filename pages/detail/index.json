@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "wux-dialog": "../../wux-weapp/dist/dialog/index"
+  }
+}
