@@ -8,7 +8,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "号码生成器",
+    "navigationBarTitleText": "即开票工具",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

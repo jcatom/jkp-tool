@@ -21,12 +21,15 @@
 
     <!-- tab切换 -->
     <view class="swiper-tab">
-      <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav"><text
-          data-current="0" bindtap="swichNav">游戏1</text></view>
-      <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav"><text
-          data-current="1" bindtap="swichNav">游戏2</text></view>
-      <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav"><text
-          data-current="2" bindtap="swichNav">游戏3</text></view>
+      <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">
+        <text data-current="0" bindtap="swichNav">游戏1</text>
+      </view>
+      <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">
+        <text data-current="1" bindtap="swichNav">游戏2</text>
+      </view>
+      <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">
+        <text data-current="2" bindtap="swichNav">游戏3</text>
+      </view>
     </view>
 
     <!-- 输入框 -->

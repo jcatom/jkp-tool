@@ -119,7 +119,7 @@ Page({
       userInfo,
       isLogin
     } = this.data
-    // console.log(isLogin, '----获取用户信息并登陆', userInfo)
+     console.log(isLogin, '----获取用户信息并登陆', userInfo)
 
     // 若拒绝授权用户信息
     if (e.detail.errMsg === 'getUserInfo:fail auth deny') {
