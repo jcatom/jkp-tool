@@ -30,11 +30,12 @@ function login() {
                 success: (res2) => {
                   //用户已经授权过，获取userInfo
                   var userInfo = res2.userInfo
+
                   //存储用户信息
                   wx.setStorageSync('userInfo', userInfo);
-
+                  
                   // 更新微信昵称和头像接口
-                  api.updateUserInfo({ nick_name: userInfo.nickName, avatar_url: userInfo.avatarUrl }).catch((err) => { console.log('---更新失败：微信昵称和头像', err.msg) })
+                  api.updateUserInfo({ nick_name: userInfo.nickName, avatar_url: userInfo.avatarUrl }).catch((err) => { console.log('---更新失败：微信昵称和头像', err) })
                   resolve && resolve()
                 }
               })
@@ -83,8 +84,20 @@ function checkLogin() {
   });
 }
 
+function isUploadCollectionQRCode() {
+  return new Promise(function(resolve, reject) {
+    api.isUploadCollectionQRCode().then(res => {
+      console.log("---查询是否上传兑奖二维码成功", res);
+      resolve && resolve(res.data);
+    }).catch(res => {
+      console.log("---查询是否上传兑奖二维码失败", res);
+      reject && reject();
+    }) ;
+  });
+}
 
 module.exports = {
   login,
   checkLogin,
+  isUploadCollectionQRCode
 };

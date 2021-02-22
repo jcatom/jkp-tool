@@ -1,157 +1,28 @@
 <!--index.wxml-->
 <view class="container bg-gray">
   <view class="container">
-
     <!-- Header -->
     <view class="header-wrap">
       <!--用户信息-->
       <view class="userinfo" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
-        <image class="avatar" src="{{userInfo.avatarUrl || '/img/index/wx.png'}}" background-size="cover"></image>
+        <image class="avatar" src="{{userInfo.avatarUrl || '/img/index/wx.png'}}" background-size="cover"/>
         <!-- 需要使用 button 来授权登录 -->
         <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfoAndLogin"
-          class="nickname">{{ userInfo.nickName || '点击登录' }}</button>
+        class="nickname">{{ userInfo.nickName || '点击登录' }}</button>
         <view wx:else>请升级微信版本</view>
       </view>
 
-      <!--游戏记录-->
-      <view class="game-record" bindtap="toRecordList">
-        <text>游戏记录></text>
-      </view>
+      <!--兑奖记录-->
+      <!-- <view class="expiry-record" bindtap="toRecordList">
+        <text>兑奖记录></text>
+      </view> -->
     </view>
-
-    <!-- tab切换 -->
-    <view class="swiper-tab">
-      <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">
-        <text data-current="0" bindtap="swichNav">游戏1</text>
-      </view>
-      <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">
-        <text data-current="1" bindtap="swichNav">游戏2</text>
-      </view>
-      <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">
-        <text data-current="2" bindtap="swichNav">游戏3</text>
-      </view>
+    <view wx:if="{{!isUploadQRCode}}">
+      <button bindtap="uploadCollectionQRCode">上传收款二维码</button>
     </view>
-
-    <!-- 输入框 -->
-    <view class="input-box-wrap">
-      <textarea class="input-box" id="" value="{{textValue}}" bindinput="onInputChange"></textarea>
-    </view>
-    <view class="msg-wrap">
-      <view class="error-msg c-red">{{errorMsg}}</view>
-    </view>
-
-    <!-- 按钮 -->
-    <view class="btn-wrap">
-      <view class="btn my-btn" bindtap="toPickNumBasket">选号篮</view>
-      <view class="btn add-btn" bindtap="addPickNum">添加到选号篮</view>
-    </view>
-
-
-    <!-- 游戏一描述 -->
-    <view class="desc" style="display:{{currentTab==0 ? '' : 'none'}}">
-      <text class="title">SSQ格式说明：</text>
-      <text>1.号码与号码使用","或空格隔开</text>
-      <text>2.前区与后区使用"|"或"-"隔开</text>
-      <text bindtap="toggleDTDialog">3.胆和拖用"#"隔开<text class="question-icon">?</text></text>
-      <text>4.号码后用"+"连接倍数</text>
-      <text>5.多组号码使用换行</text>
-      <text class="title">示例：</text>
-      <view wx:for="{{example[currentTab]}}" wx:key="index" class="example">
-        <view>
-          <text>{{item.value}}</text>
-          <text>（{{item.remark}}）</text>
-        </view>
-        <text bindtap="copyText" data-text="{{item.value}}">使用该组号码</text>
-      </view>
-    </view>
-    <!-- 游戏二描述 -->
-    <view class="desc" style="display:{{currentTab==1 ? '' : 'none'}}">
-      <text class="title">QLC格式说明：</text>
-      <text>1.号码与号码之间使用","或"-"或空格隔开</text>
-      <text bindtap="toggleDTDialog">2.胆和拖用"#"隔开<text class="question-icon">?</text></text>
-      <text>3.号码后用"+"连接倍数</text>
-      <text>4.多组号码使用换行</text>
-      <text class="title">示例：</text>
-      <view wx:for="{{example[currentTab]}}" wx:key="index" class="example">
-        <view>
-          <text>{{item.value}}</text>
-          <text>（{{item.remark}}）</text>
-        </view>
-        <text bindtap="copyText" data-text="{{item.value}}">使用该组号码</text>
-      </view>
-    </view>
-    <!-- 游戏三描述 -->
-    <view class="desc" style="display:{{currentTab==2 ? '' : 'none'}}">
-      <text class="title">SD格式说明：</text>
-      <text>1.直选号码与号码之间使用"-"或"|"或空格隔开</text>
-      <text>2.组选号码与号码之间使用","隔开</text>
-      <text>3.号码后用"+"连接倍数</text>
-      <text>4.多组号码使用换行</text>
-      <text class="title">示例：</text>
-      <view wx:for="{{example[currentTab]}}" wx:key="index" class="example">
-        <view>
-          <text>{{item.value}}</text>
-          <text>（{{item.remark}}）</text>
-        </view>
-        <text bindtap="copyText" data-text="{{item.value}}">使用该组号码</text>
-      </view>
-    </view>
-
-  </view>
-
-
-
-  <!-- 添加到选号篮确认弹框 -->
-  <view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
-    <!-- 如果想点击弹窗外不隐藏，取消bindtap点击事件即可 -->
-    <view class="zan-dialog__mask" bindtap="toggleDialog" />
-    <view class="zan-dialog__container">
-      <view class="title">游戏{{~~currentTab+1}}号码确认</view>
-      <view class="content">
-        <view>您输入的正确号码为：</view>
-        <view class="number" wx:for="{{confirmArr}}" wx:key='index'>
-          <text>{{item.num}}{{item.desc||''}}</text>
-        </view>
-        <view>是否确认？</view>
-      </view>
-      <view class="footer">
-        <view class="btn" bindtap="toggleDialog">取消</view>
-        <view class="btn c-red" bindtap="confirmPickNum">确认添加</view>
-      </view>
-    </view>
-  </view>
-
-  <!-- 胆拖说明 -->
-  <view class="zan-dialog {{ showDTDialog ? 'zan-dialog--show' : '' }}">
-    <!-- 如果想点击弹窗外不隐藏，取消bindtap点击事件即可 -->
-    <view class="zan-dialog__mask" />
-    <view class="zan-dialog__container">
-      <view class="title">胆拖说明</view>
-      <view class="content">
-        <text>“胆”是指每一注组合中都包含的号码，\n</text>
-        <text>“拖”是指所选号码中除“胆码”以外的其它号码。\n</text>
-        <text>“胆”+“拖”数量之和必须多于单式选号的号码个数；\n</text>
-        <text>“胆”和“拖”不能重复；“胆”的个数要少于单式选号的个数。</text>
-      </view>
-      <view class="footer">
-        <view class="btn c-red" bindtap="toggleDTDialog">确定</view>
-      </view>
-    </view>
-  </view>
-
-  <!-- 切换tab说明 -->
-  <view class="zan-dialog {{ showTabDialog ? 'zan-dialog--show' : '' }}">
-    <!-- 如果想点击弹窗外不隐藏，取消bindtap点击事件即可 -->
-    <view class="zan-dialog__mask" />
-    <view class="zan-dialog__container">
-      <view class="title">游戏切换说明</view>
-      <view class="content">
-        <text>切换游戏后 <text class="c-red">选号篮</text> 中的选号会被清空哦~</text>
-      </view>
-      <view class="footer">
-        <view class="btn" bindtap="toggleTabDialog">取消</view>
-        <view class="btn c-red" bindtap="confirmChangeTab">确认切换</view>
-      </view>
+    <view wx:else>
+      <button >上传即开票照片</button>
+      <button>修改收款二维码</button>
     </view>
   </view>
 
@@ -171,5 +42,4 @@
       </view>
     </view>
   </view>
-
 </view>

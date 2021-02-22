@@ -15,9 +15,10 @@ const {
  * http.DeleteMethod 删除请求
  * */
 module.exports = {
-  authLoginweixin: (params) => GetMethod(api_host, { key: 'login', ...params }), //登录
-  updateUserInfo: (params) => PostMethod(api_host + '/100203', { key: '100203', ...params }), // 更新微信昵称和头像
-  createQrCode: (params) => PostMethod(api_host + "/100202", { key: '100202', ...params },{},true), // 选号下单
-  queryOrderList: (params) => GetMethod(api_host, { key: '101005', ...params }), // 查询订单列表
-  queryOrderDetail: (params) => GetMethod(api_host, { key: '101505', ...params }), // 查询订单详情
+  //登录
+  authLoginweixin: (params) => GetMethod(api_host + '/100001', { key: '100001', ...params }), 
+  // 更新微信昵称和头像
+  updateUserInfo: (params) => PostMethod(api_host + '/100002', { key: '100002', ...params }),
+  // 查询是否已上传收款二维码
+  isUploadCollectionQRCode: (params) => GetMethod(api_host + '/100004', {key: '100004', ...params})
 }; 

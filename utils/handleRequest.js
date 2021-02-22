@@ -27,7 +27,7 @@ const http = (url, params, method, header = {}, hideMsg = false) => {
     })
     return new Promise((resolve, reject) => {
         wx.request({
-            url: url + params.key,
+            url: url,
             method: method,
             data: params,
             header: {
